@@ -11,7 +11,7 @@
 	|__Comment.py：评论爬虫代码(Use your Cookie)
 	|__Topic.py：按话题爬取短微博代码(Use your Cookie)
 |_2_Preprocessing：放置预处理代码
-	|__data:防止关键词提取结果
+	|__data:放置关键词提取结果
 	|__myTextRank:自己实现的关键词提取
 	|__pre.py:微博文本预处理
 |_3_Analysis：放置数据分析代码
