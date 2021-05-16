@@ -58,7 +58,7 @@ def drawer2(stage_name, data):
             areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
             linestyle_opts=opts.LineStyleOpts(width=3),
             )
-            .render("src\\04visualization\\multi-emotion\\image\\"+stage_name+".html")
+            .render("res\\output\\multi-emotion\\image\\"+stage_name+".html")
     )
 
 if __name__ == "__main__":

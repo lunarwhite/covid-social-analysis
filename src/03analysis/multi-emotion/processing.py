@@ -8,8 +8,8 @@ def eachFile(filepath):
     return child
 
 if __name__ == '__main__':
-    files = eachFile('src\\03analysis\multi-emotion\\data-txt')
-    file = open('src\\04visualization\\multi-emotion\\data\\result.txt', 'a+', encoding='utf-8')
+    files = eachFile('res\\output\\comment-txt')
+    file = open('res\\output\\multi-emotion\\result.txt', 'a+', encoding='utf-8')
     for x in files:
         fopen = open(x, 'r', encoding='utf-8')
         data = [0, 0, 0, 0, 0]

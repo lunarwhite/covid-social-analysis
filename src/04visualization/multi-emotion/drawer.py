@@ -57,9 +57,9 @@ def drawer():
         .set_global_opts(
         title_opts=opts.TitleOpts(title="多维情感分析"), legend_opts=opts.LegendOpts()
         )
-        .render("src\\04visualization\\multi-emotion\\image\\多维雷达图.html")
+        .render("res\\output\\multi-emotion\\image\\多维雷达图.html")
     )
 
 if __name__ == "__main__":
-    filepwd = eachFile("src\\04visualization\\multi-emotion\\data")
+    filepwd = eachFile("res\\output\\multi-emotion")
     drawer()
