@@ -14,7 +14,7 @@ def readLines(filename):
     fopen.close()
     return data
 
-stopwords = readLines('src\\02preprocessing\\stop-words.txt')
+stopwords = readLines('res\\input\\dict\\stop-words.txt')
 
 def myTextRank(text, boo, leng=5):
     text = clean_text(text)
@@ -51,7 +51,7 @@ def combine(word_list, window=2):
             yield r
 
 def extract_keywords(i):
-    df = pd.read_csv('src\\02preprocessing\\hot-mblogs.csv', index_col=0)
+    df = pd.read_csv('res\\input\\hot\\hot-mblogs.csv', index_col=0)
     
     data = []
     d = []
@@ -90,17 +90,16 @@ if __name__ == "__main__":
     result = [x[1] for x in pairs]
     print(result)
 
-    # 热门带权值
-    file = open('src\\02preprocessing\\data\\hot-weighted-value.txt', 'a+', encoding='utf-8')
+    # 热门带权值 
+    file = open('res\\output\\hot\\hot-weighted-value.txt', 'a+', encoding='utf-8')
     for i in range(200):
         file.write(str(pairs[i]) + '\n')
     file.close()
     print("hot-weighted-value.txt 保存成功")
 
     # 热门
-    file = open('src\\02preprocessing\\data\\hot.txt', 'a+', encoding='utf-8')
+    file = open('res\\output\\hot\\hot.txt', 'a+', encoding='utf-8')
     for i in range(200):
         file.write(str(pairs[i][1]) + '\n')
     file.close()
-
-    print("hot.txt 文件保存成功")
+    print("hot.txt 保存成功")

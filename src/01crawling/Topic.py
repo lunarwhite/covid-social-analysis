@@ -121,15 +121,15 @@ class WeiboTopicScrapy:
             weibo_footer = re.findall(pattern, str_footer, re.M)
 
             up_num = int(weibo_footer[0])
-            # print('点赞数: ' + str(up_num))
+            print('点赞数: ' + str(up_num))
             footer['up_num'] = up_num
 
             retweet_num = int(weibo_footer[1])
-            # print('转发数: ' + str(retweet_num))
+            print('转发数: ' + str(retweet_num))
             footer['retweet_num'] = retweet_num
 
             comment_num = int(weibo_footer[2])
-            # print('评论数: ' + str(comment_num))
+            print('评论数: ' + str(comment_num))
             footer['comment_num'] = comment_num
             weibo['up_num'] = footer['up_num']
             weibo['retweet_num'] = footer['retweet_num']
@@ -177,10 +177,9 @@ class WeiboTopicScrapy:
                     self.got_num += 1
 
             if page % 4 == 0:
-                result_headers = ['微博id', '发布者昵称', '发布者性别', '发布者地区', '发布者关注数', '发布者粉丝数', '微博正文', '发布时间', '点赞数', '转发数',
-                                  '评论数', ]
+                result_headers = ['微博id', '发布者昵称', '发布者性别', '发布者地区', '发布者关注数', '发布者粉丝数', '微博正文', '发布时间', '点赞数', '转发数', '评论数', ]
                 result_data = [w.values() for w in self.weibo][wrote_num:]
-                with open('topic/' + 'some keyWords' + "5." + str(mystart_day) + '.csv', 'a', encoding='utf-8-sig',
+                with open('res\\input\\topic\\' + 'some keyWords' + "5." + str(mystart_day) + '.csv', 'a', encoding='utf-8-sig',
                           newline='') as f:
                     writer = csv.writer(f)
                     global boo

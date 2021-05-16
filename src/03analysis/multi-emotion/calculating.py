@@ -43,7 +43,7 @@ def sent2word(sentence):
     segResult = []
     for w in segList:
         segResult.append(w)
-    stopwords = readStop('src\\03analysis\\multi-emotion\\dict\\stop-words.txt')
+    stopwords = readStop('res\\input\\dict\\stop-words.txt')
     newSent = []
     for word in segResult:
         if word + '\n' in stopwords:
@@ -91,16 +91,15 @@ def readLines2(filename):
     for x in fopen.readlines():
         if x.strip() != '':
             data.append(x.strip())
-
     fopen.close()
     return data
 
 def words():
-    le = readLines2('src\\03analysis\\multi-emotion\\dict\\乐.txt')
-    hao = readLines2('src\\03analysis\\multi-emotion\\dict\\好.txt')
-    ai = readLines2('src\\03analysis\\multi-emotion\\dict\\哀.txt')
-    wu = readLines2('src\\03analysis\\multi-emotion\\dict\\恶.txt')
-    ju = readLines2('src\\03analysis\\multi-emotion\\dict\\惧.txt')
+    le = readLines2('res\\\input\\dict\\乐.txt')
+    hao = readLines2('res\\\input\\dict\\好.txt')
+    ai = readLines2('res\\\input\\dict\\哀.txt')
+    wu = readLines2('res\\\input\\dict\\恶.txt')
+    ju = readLines2('res\\\input\\dict\\惧.txt')
     return [le, hao, ai, wu, ju]
 
 def classifyWords(wordDict, le, hao, ai, wu, ju):
@@ -158,7 +157,7 @@ def text_save(filename, data):
     print(filename + ".txt保存成功")
 
 if __name__ == "__main__":
-    filepwd = eachFile("src\\03analysis\\multi-emotion\\data-csv")
+    filepwd = eachFile("res\\input\\topic")
     score_var = []
     words_vaule = words()
     for x in filepwd:
@@ -173,5 +172,5 @@ if __name__ == "__main__":
                 score_var.append(data_1)
             i = i + 1
         i = 0
-        text_save(x.replace('data-csv', 'data-txt'), score_var)
+        text_save(x.replace('res\\input\\topic', 'res\\output\\comment-txt'), score_var)
         score_var = []

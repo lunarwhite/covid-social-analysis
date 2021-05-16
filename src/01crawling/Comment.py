@@ -85,7 +85,7 @@ class WeiboCommentScrapy(Thread):
         return [userURL, nickName, sex, location, weiboNum, followingNum, followsNum, content, praisedNum, publish_time]
 
     def write_to_csv(self, result, isHeader=False):
-        with open('comment/' + self.wid + '.csv', 'a', encoding='utf-8-sig', newline='') as f:
+        with open('res\\input\\comment\\' + self.wid + '.csv', 'a', encoding='utf-8-sig', newline='') as f:
             writer = csv.writer(f)
             if isHeader == True:
                 writer.writerows([self.result_headers])
