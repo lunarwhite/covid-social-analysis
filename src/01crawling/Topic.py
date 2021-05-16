@@ -10,16 +10,14 @@ from time import sleep
 from datetime import datetime, timedelta
 from fake_useragent import UserAgent
 
-Cookie = 'your Cookie'
+Cookie = '_T_WM=e3ec8290265060e304944d71d36d1d8f; SUB=_2A25NpMTuDeRhGeFN41YR8ivEyTyIHXVvZuymrDV6PUJbktAKLUnykW1NQ94Fb1m9IG7p3lQVDq5PzG05XyNmb8VE; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5cDxLSe1cuLO-q9xvbRRWI5NHD95QNe0nXehzf1hz7Ws4DqcjGSG-XUKxfUBtt; SSOLoginState=1621144766'
 
 User_Agent = UserAgent().random
 mystart_day = 10
 mystart_time = 10
 boo = True
 
-
 class WeiboTopicScrapy:
-
     def __init__(self, keyword, start_time, end_time):
         self.headers = {
             'Cookie': Cookie,
@@ -147,8 +145,7 @@ class WeiboTopicScrapy:
         random_pages = random.randint(1, 5)
         pageNum = 50000
         for page in range(1, pageNum):
-            Referer = 'https://weibo.cn/search/mblog?hideSearchFrame=&keyword={}&page={}'.format(quote(self.keyword),
-                                                                                                 page - 1)
+            Referer = 'https://weibo.cn/search/mblog?hideSearchFrame=&keyword={}&page={}'.format(quote(self.keyword), page - 1)
             headers = {
                 'Cookie': Cookie,
                 'User-Agent': User_Agent,
@@ -198,15 +195,12 @@ class WeiboTopicScrapy:
                 page1 = page
                 random_pages = random.randint(1, 3)
 
-
-
 def time_params_formatter(params_time, offset_day=0, offset_hour=-8):
     [temp_year, temp_month, temp_day, temp_hour] = [int(e) for e in params_time.split('-')]
     temp_date = datetime(year=temp_year, month=temp_month, day=temp_day, hour=temp_hour)
     temp_offset = timedelta(days=offset_day, hours=offset_hour)
     res_time = (temp_date + temp_offset).strftime('%Y-%m-%d-%H')
     return res_time
-
 
 def start():
     keyword = ['疫情', '武汉', '肺炎', '新型', '冠状病毒', '感染', '口罩', '医院', '病毒', '确诊', '患者', '加油', "病例", '防控', '隔离', '新冠', '一线',
@@ -227,7 +221,6 @@ def start():
         temp_time = "0" + temp_time
     end_time = '2020-02-{}-{}'.format(temp_day, temp_time)
     WeiboTopicScrapy(keyword=keyword[random.randint(0, len(keyword))], start_time=start_time, end_time=end_time)
-
 
 if __name__ == '__main__':
     start()

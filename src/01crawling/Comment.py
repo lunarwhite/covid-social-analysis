@@ -9,15 +9,14 @@ from random import randint
 from fake_useragent import UserAgent
 
 requests.packages.urllib3.disable_warnings()
+Cookie = '_T_WM=e3ec8290265060e304944d71d36d1d8f; SUB=_2A25NpMTuDeRhGeFN41YR8ivEyTyIHXVvZuymrDV6PUJbktAKLUnykW1NQ94Fb1m9IG7p3lQVDq5PzG05XyNmb8VE; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5cDxLSe1cuLO-q9xvbRRWI5NHD95QNe0nXehzf1hz7Ws4DqcjGSG-XUKxfUBtt; SSOLoginState=1621144766'
 
 headers = {
     "User-Agent": UserAgent().chrome,
-    'Cookie': 'your cookie'
+    'Cookie': Cookie
 }
 
-
 class WeiboCommentScrapy(Thread):
-
     def __init__(self, wid):
         global headers
         Thread.__init__(self)
@@ -108,7 +107,6 @@ class WeiboCommentScrapy(Thread):
             else:
                 self.write_to_csv(result, isHeader=False)
             sleep(randint(1, 5))
-
 
 if __name__ == "__main__":
     WeiboCommentScrapy(wid='IrMDgksAc')
