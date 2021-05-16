@@ -1,9 +1,9 @@
+import pandas as pd
 import networkx as nx
 import jieba
 import jieba.analyse
-import pandas as pd
-from pre import clean_text
 
+from myPre import clean_text
 
 def readLines(filename):
     fopen = open(filename, 'r', encoding='utf-8')
@@ -14,9 +14,7 @@ def readLines(filename):
     fopen.close()
     return data
 
-
-stopwords = readLines('stop_words.txt')
-
+stopwords = readLines('stop-words.txt')
 
 def myTextRank(text, boo, leng=5):
     text = clean_text(text)
@@ -31,7 +29,6 @@ def myTextRank(text, boo, leng=5):
     kwds = textrank(block_words, leng, boo)
     return kwds
 
-
 def textrank(block_words, topK, with_score=False):
     G = nx.Graph()
     for word_list in block_words:
@@ -44,7 +41,6 @@ def textrank(block_words, topK, with_score=False):
     else:
         return [w for (w, imp) in pr_sorted[:topK]]
 
-
 def combine(word_list, window=2):
     for x in range(1, window):
         if x >= len(word_list):
@@ -53,7 +49,6 @@ def combine(word_list, window=2):
         res = zip(word_list, word_list2)
         for r in res:
             yield r
-
 
 def extract_keywords(i):
     df = pd.read_csv('热门微博.csv', index_col=0, )
@@ -70,7 +65,6 @@ def extract_keywords(i):
             else:
                 d[data.index(word)] = d[data.index(word)] + score
     return data, d
-
 
 if __name__ == "__main__":
     dit = {}
