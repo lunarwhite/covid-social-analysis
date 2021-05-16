@@ -155,10 +155,10 @@ def text_save(filename, data):
     for i in range(len(data)):
         file.write(str(data[i]) + '\n')
     file.close()
-    print("文件保存成功")
+    print(filename + ".txt保存成功")
 
 if __name__ == "__main__":
-    filepwd = eachFile("data")
+    filepwd = eachFile("src\\03analysis\\multi-emotion\\data-csv")
     score_var = []
     words_vaule = words()
     for x in filepwd:
@@ -173,5 +173,5 @@ if __name__ == "__main__":
                 score_var.append(data_1)
             i = i + 1
         i = 0
-        text_save(x.replace('data', 'result'), score_var)
+        text_save(x.replace('data-csv', 'data-txt'), score_var)
         score_var = []
