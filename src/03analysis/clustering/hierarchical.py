@@ -62,7 +62,7 @@ def func(file):
         top_word.append(k)
 
     cut_words = ""
-    f = open('key.txt', 'w', encoding='utf-8')
+    f = open('res\\output\\clustering\\key.txt', 'w', encoding='utf-8')
     datapd = pd.read_csv(file, encoding='utf-8')
     for line in datapd['微博正文']:
         line = str(line)

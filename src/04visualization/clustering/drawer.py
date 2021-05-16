@@ -16,4 +16,4 @@ def bar_stack():
     return bar
 
 chart = bar_stack()
-chart.render('res\\output\\clustering\\image\\四阶段对比图.html')
+chart.render('res\\output\\clustering\\image1\\四阶段对比图.html')
