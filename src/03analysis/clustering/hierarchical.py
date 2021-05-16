@@ -1,10 +1,10 @@
+import os
 import pandas as pd
 import jieba
-import matplotlib.pyplot as plt
 from pylab import mpl
+import matplotlib.pyplot as plt
 from collections import Counter
 from scipy.cluster.hierarchy import ward, dendrogram
-
 from myTextRank import myTextRank
 
 from sklearn import metrics
@@ -12,6 +12,13 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+
+def eachFile(filepath):
+    pathDir = os.listdir(filepath)
+    child = []
+    for allDir in pathDir:
+        child.append(os.path.join('%s/%s' % (filepath, allDir)))
+    return child
 
 def label2rank(labels_list):
     series = pd.Series(labels_list)
@@ -32,12 +39,12 @@ def feature_reduction(matrix, pca_n_components=50, tsne_n_components=2):
     # print('data_pca_tsne.shape=', data_pca_tsne.shape)
     return data_pca_tsne
 
-def func(num):
+def func(file):
     mpl.rcParams['font.sans-serif'] = ['SimHei']
-    datapd = pd.read_csv('res\\input\\comment\\IrC1TqAxz.csv', encoding='utf-8')
+    datapd = pd.read_csv(file, encoding='utf-8')
     all_words = ""
 
-    for line in datapd['评论内容']:
+    for line in datapd['微博正文']:
         line = str(line)
         seg_list = myTextRank(line, False, 20)
         cut_words = (" ".join(seg_list))
@@ -55,9 +62,9 @@ def func(num):
         top_word.append(k)
 
     cut_words = ""
-    f = open('res\\output\\clustering\\key.txt', 'w', encoding='utf-8')
-    datapd = pd.read_csv('res\\input\\comment\\IrC1TqAxz.csv', encoding='utf-8')
-    for line in datapd['评论内容']:
+    f = open('key.txt', 'w', encoding='utf-8')
+    datapd = pd.read_csv(file, encoding='utf-8')
+    for line in datapd['微博正文']:
         line = str(line)
         seg_list = jieba.cut(line, cut_all=False)
         final = ""
@@ -79,10 +86,11 @@ def func(num):
     fig, ax = plt.subplots(figsize=(15, 20))  # set size
     ax = dendrogram(linkage_matrix, orientation="right", labels=count_vec.get_feature_names() );
     plt.tight_layout()
-    # plt.savefig('hierarchical-tree.png', dpi=200)
+    # plt.savefig('层次聚类树图.png', dpi=200)
 
-    ac = AgglomerativeClustering(n_clusters=num, affinity='euclidean', linkage='ward')
+    ac = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
     ac.fit(xx1)
+
     labels = ac.fit_predict(xx1)
     plt.scatter(xx1[:, 0], xx1[:, 1], c=labels)
     plt.show()
@@ -119,8 +127,8 @@ def func(num):
     plt.scatter(x, y, c=label)
     # plt.savefig('层次PCA.jpg')
     plt.show()
-
     return [score0, score1, score2]
 
 if __name__ == "__main__":
-    func(3)
+    file = eachFile('res\\input\\stage')
+    func(file[0])
