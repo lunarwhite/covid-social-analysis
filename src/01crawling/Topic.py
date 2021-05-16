@@ -179,8 +179,7 @@ class WeiboTopicScrapy:
             if page % 4 == 0:
                 result_headers = ['微博id', '发布者昵称', '发布者性别', '发布者地区', '发布者关注数', '发布者粉丝数', '微博正文', '发布时间', '点赞数', '转发数', '评论数', ]
                 result_data = [w.values() for w in self.weibo][wrote_num:]
-                with open('res\\input\\topic\\' + 'some keyWords' + "5." + str(mystart_day) + '.csv', 'a', encoding='utf-8-sig',
-                          newline='') as f:
+                with open('res\\input\\topic\\' + '疫情' + "5." + str(mystart_day) + '.csv', 'a', encoding='utf-8-sig', newline='') as f:
                     writer = csv.writer(f)
                     global boo
                     if boo:

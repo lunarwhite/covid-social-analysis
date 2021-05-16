@@ -91,14 +91,14 @@ if __name__ == "__main__":
     print(result)
 
     # 热门带权值 
-    file = open('res\\output\\hot\\hot-weighted-value.txt', 'a+', encoding='utf-8')
+    file = open('res\\output\\hot\\hot-weighted-value.txt', 'w+', encoding='utf-8')
     for i in range(200):
         file.write(str(pairs[i]) + '\n')
     file.close()
     print("hot-weighted-value.txt 保存成功")
 
     # 热门
-    file = open('res\\output\\hot\\hot.txt', 'a+', encoding='utf-8')
+    file = open('res\\output\\hot\\hot.txt', 'w+', encoding='utf-8')
     for i in range(200):
         file.write(str(pairs[i][1]) + '\n')
     file.close()

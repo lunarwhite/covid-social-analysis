@@ -150,7 +150,7 @@ def listToDist(wordlist):
     return data
 
 def text_save(filename, data):
-    file = open(filename.replace('csv', 'txt'), 'a+')
+    file = open(filename.replace('csv', 'txt'), 'w+')
     for i in range(len(data)):
         file.write(str(data[i]) + '\n')
     file.close()
@@ -172,5 +172,5 @@ if __name__ == "__main__":
                 score_var.append(data_1)
             i = i + 1
         i = 0
-        text_save(x.replace('res\\input\\topic', 'res\\output\\comment-txt'), score_var)
+        text_save(x.replace('res\\input\\topic', 'res\\output\\topic-txt'), score_var)
         score_var = []
