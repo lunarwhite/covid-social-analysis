@@ -1,7 +1,5 @@
 # covid19-sentiment-data-analysis
 
-SDU data-structure S1 2021 - project assignment 
-
 
 ```
 ├───.vscode # vscode 配置文件
