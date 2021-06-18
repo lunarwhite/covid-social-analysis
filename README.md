@@ -1,7 +1,5 @@
 # covid19-sentiment-data-analysis
-
-SDU data-structure S1 2021 - project assignment 
-
+ML-based analysis of social media users' attentiveness under the COVID-19. || 基于机器学习的COVID-19疫情背景下，分阶段的微博文本情感分析，先爬取数据，再用聚类、情感词典和多维情感分析，并可视化
 
 ```
 ├───.vscode # vscode 配置文件
@@ -37,3 +35,42 @@ SDU data-structure S1 2021 - project assignment
         ├───emotion-dict
         └───multi-emotion
 ```
+
+## 1 概览
+
+- 手动爬取疫情背景下微博文本与评论，进行情感分析
+- 分别尝试聚类、情感词典和多维度情感分析
+- 主要工具包版本为Python 3.6.10、scikit-learn 0.24.2
+
+## 2 部署
+
+- 克隆repo：`git clone https://github.com/lunarwhite/covid19-sentiment-data-analysis.git`
+- 更新pip：`pip3 install --upgrade pip`
+- 为项目创建虚拟环境：`conda create --name <env_name> python=3.6`
+- 激活env：`conda activate <env_name>`
+- 安装python库依赖：`pip3 install -r requirements.txt`
+
+## 3 流程
+
+- 数据获取
+  - 爬取微博文本
+  - 爬取微博评论
+- 数据预处理
+  - 数据清洗
+  - 去停用词
+  - jieba分词
+  - textRank关键词分析
+- 分析-情感词典
+  - SO-PMI新词发现
+  - 心态词典扩展
+  - 心态值计算
+- 分析-聚类
+  - K-means聚类
+  - DBSCAN聚类
+  - 层次聚类
+- 分析-多维度分析
+  - 多维心态词典
+  - 多维情感分析
+- 可视化
+  - pyecharts
+  - matplotlib
