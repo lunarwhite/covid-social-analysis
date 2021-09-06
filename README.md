@@ -1,4 +1,7 @@
 # covid19-sentiment-data-analysis
+
+![covid19-sentiment-data-analysis](https://socialify.git.ci/lunarwhite/covid19-sentiment-data-analysis/image?description=1&descriptionEditable=ML-based%20analysis%20of%20social%20media%20users%27%20attentiveness%20under%20the%20COVID-19%2C%20with%20visualization.&font=Raleway&forks=1&issues=1&language=1&logo=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.b9bbb1d722d3ef6ebf7d573703b5925e%3Frik%3DZ2JOTqQ%252bN1OXUQ%26pid%3DImgRaw%26r%3D0&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Light)
+
 ML-based analysis of social media users' attentiveness under the COVID-19. || 基于机器学习的COVID-19疫情背景下，分阶段的微博文本情感分析，先爬取数据，再用聚类、情感词典和多维情感分析，并可视化
 
 ```
