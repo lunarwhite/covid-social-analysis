@@ -66,7 +66,7 @@ qtconsole==5.0.3
 QtPy==1.9.0
 requests==2.31.0
 scikit-learn==0.24.2
-scipy==1.5.4
+scipy==1.10.0
 Send2Trash==1.5.0
 simplejson==3.17.2
 six==1.15.0
